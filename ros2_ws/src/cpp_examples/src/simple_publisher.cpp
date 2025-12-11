@@ -3,7 +3,7 @@
 SimplePublisher::SimplePublisher(const std::string &name) : Node(name){
     pub_ = create_publisher<std_msgs::msg::String>("hello_world_topic", 10);
     timer_ = create_wall_timer(std::chrono::seconds(1), std::bind(&SimplePublisher::timer_callback, this));
-    RCLCPP_INFO(get_logger(), "Publishing at 1 Hz");
+    RCLCPP_INFO_STREAM(get_logger(), "Publishing at 1 Hz");
 }
 
 void SimplePublisher::timer_callback(){

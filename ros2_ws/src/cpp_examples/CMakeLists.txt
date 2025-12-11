@@ -14,6 +14,9 @@ find_package(std_msgs)
 add_executable(simple_publisher src/simple_publisher.cpp)
 ament_target_dependencies(simple_publisher rclcpp std_msgs)
 
+add_executable(simple_subscriber src/simple_subscriber.cpp)
+ament_target_dependencies(simple_subscriber rclcpp std_msgs)
+
 # Install include folder
 include_directories(include)  # Important to found the include folder
 install(
@@ -24,6 +27,7 @@ install(
 # Install executables
 install(TARGETS
   simple_publisher
+  simple_subscriber
   DESTINATION lib/${PROJECT_NAME}
 )
 
